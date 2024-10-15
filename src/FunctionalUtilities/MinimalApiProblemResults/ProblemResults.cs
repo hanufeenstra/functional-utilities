@@ -1,9 +1,8 @@
 using System.Net;
+using FunctionalUtilities.Errors;
 using Microsoft.AspNetCore.Http;
 
-using FunctionalUtilities.Errors;
-
-namespace FunctionalUtilities.Monads.Result;
+namespace FunctionalUtilities.MinimalApiProblemResults;
 
 public static class ProblemResults
 {
@@ -67,7 +66,7 @@ public static class ProblemResults
         return Results.Problem(
             error.Detail,
             null,
-            (int)HttpStatusCode.RequestEntityTooLarge,
+            (int) HttpStatusCode.RequestEntityTooLarge,
             "Too many records",
             "https://httpstatuses.com/413");
     }
@@ -78,7 +77,7 @@ public static class ProblemResults
             error.Errors,
             error.Detail,
             null,
-            (int)HttpStatusCode.BadRequest,
+            (int) HttpStatusCode.BadRequest,
             error.Title,
             "https://httpstatuses.com/400");
     }

@@ -1,3 +1,4 @@
+using FunctionalUtilities.MinimalApiProblemResults;
 using FunctionalUtilities.Monads.Result;
 using Microsoft.AspNetCore.Http;
 

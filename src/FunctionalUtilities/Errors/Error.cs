@@ -9,6 +9,7 @@ public sealed record Error(
 
 {
     public static readonly Error None = new(string.Empty, string.Empty, new Dictionary<string, string[]>());
+    
     public static Error FromBusinessRule(AbstractRule rule) => 
         new(rule.Title, rule.Details, new Dictionary<string, string[]>());
     
