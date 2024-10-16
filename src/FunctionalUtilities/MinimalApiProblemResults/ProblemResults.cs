@@ -13,7 +13,7 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.Forbidden, 
             "Action not allowed",
-            "https://httpstatuses.com/403"
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3"
         );
     }
 
@@ -24,7 +24,7 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.RequestEntityTooLarge, 
             "File too large",
-            "https://httpstatuses.com/413"
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.11"
         );
     }
 
@@ -35,7 +35,7 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.BadRequest, 
             error.Title,
-            "https://httpstatuses.com/400"
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1"
         );
     }
     
@@ -46,7 +46,7 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.Conflict, 
             error.Title,
-            "https://httpstatuses.com/409"
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.8"
         );
     }
     
@@ -57,7 +57,7 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.NotFound, 
             error.Title,
-            "https://httpstatuses.com/404"
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4"
         );
     }
 
@@ -68,7 +68,7 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.RequestEntityTooLarge,
             "Too many records",
-            "https://httpstatuses.com/413");
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.11");
     }
     
     public static IResult Validation(Error error)
@@ -79,6 +79,17 @@ public static class ProblemResults
             null,
             (int) HttpStatusCode.BadRequest,
             error.Title,
-            "https://httpstatuses.com/400");
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1");
+    }
+
+    public static IResult UnsupportedMediaType(Error error)
+    {
+        return Results.Problem(
+            error.Detail,
+            null,
+            (int) HttpStatusCode.UnsupportedMediaType,
+            error.Title,
+            "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.13");
+            
     }
 }
